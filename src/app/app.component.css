@@ -1,0 +1,11 @@
+#tableCss 
+{
+    text-align: center;
+    vertical-align: middle;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    
+}

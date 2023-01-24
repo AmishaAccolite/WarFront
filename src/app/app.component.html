@@ -1,0 +1,62 @@
+<div class ="container-fluid">
+<div>
+    <button (click)="pdfDownload()">Download Pdf</button>
+    <button (click)="excelDownload()">Download Excel</button>
+</div>
+
+<div>
+    Select Category: &nbsp;&nbsp;
+<input type="checkbox" id="decor" name="decor" value="Decor" (change)="selectCat($event)">
+<label for="decor">Decors</label>&nbsp;&nbsp;
+<input type="checkbox" id="furniture" name="furniture" value="Furnitures" (change)="selectCat($event)">
+<label for="furniture"> Furnitures</label>&nbsp;&nbsp;
+<input type="checkbox" id="body" name="body" value="BodyCare" (change)="selectCat($event)">
+<label for="body"> Bodycare</label>&nbsp;&nbsp;
+<input type="checkbox" id="kitchen" name="kitchen" value="KitchenWare" (change)="selectCat($event)">
+<label for="kitchen"> KitchenWare</label>&nbsp;&nbsp;
+
+</div>
+<br>
+<div>
+    Select Range: &nbsp;&nbsp;&nbsp;
+<select name="range" (change)="selectRange($event)">
+    <option selected="selected" value="1000000">All</option>
+    <option value="1000">less than 5000</option>
+    <option value="10000" >less than 10000</option>
+    <option value="25000" >less than 25000</option>
+    <option value="50000" >less than 50000</option>
+    <option value="100000" >less than 100000</option>
+    <option value="1000000">less than 1000000</option>
+
+    </select>
+</div>
+<br><br>
+
+
+
+  <div class = "row center" style="width: 50%;">
+    <table class="table table-bordered table-striped" id="tableCss" >
+      <thead>
+        <tr >
+          <th> Id</th>
+          <th>Product Name</th>
+          <th> Category</th>
+          <th> Price</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let x of allItems " >
+          <td>{{ x.productId }}</td>
+          <td>{{ x.productName }}</td>
+          <td>{{ x.category }}</td>
+          <td>{{ x.price }}</td>
+        </tr>
+      </tbody>
+      
+    </table>
+    <mat-paginator [pageSizeOptions]="[10]" [pageSize]="10" [length]="totalElements" (page)="nextPage($event)"> </mat-paginator>
+   </div> 
+</div>
+
+
+
